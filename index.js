@@ -60,6 +60,10 @@ async function run() {
             const result = await destinationCollection.find().toArray();
             res.send(result)
         })
+        app.get('/featured', async (req, res)=>{
+            const result = await destinationCollection.find().limit(4).toArray();
+            res.send(result)
+        })
 
         app.post("/destinations", async (req, res) => {
             const destinationData = req.body;
